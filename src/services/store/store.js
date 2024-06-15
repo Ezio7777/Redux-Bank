@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from "redux";
-import accReducer from "./reducers/accReducer";
-import cusReducer from "./reducers/cusReducer";
+import accReducer from "../reducer/accReducer";
+import cusReducer from "../reducer/cusReducer";
 
 const rootReducer = combineReducers({
   account: accReducer,

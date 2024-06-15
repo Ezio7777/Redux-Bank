@@ -1,30 +1,24 @@
-import "./App.css";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-
-import {
-  BrowserRouter as Router,
-  // Switch,
-  Route,
-  // Link,
-  Routes,
-} from "react-router-dom";
+import CreateCustomer from "./components/CreateCustomer";
+import Customer from "./components/Customer";
+import AccountOperations from "./components/AccountOperations";
+import BalanceDisplay from "./components/BalanceDisplay";
+import { useSelector } from "react-redux";
 
 function App() {
+  const name = useSelector((store) => store.customer.fullName);
+
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar />
-              <Home />
-            </>
-          }
-        />
-      </Routes>
-    </Router>
+    <>
+      <h1>🏦 The Redux Bank</h1>
+      <CreateCustomer />
+      {name && (
+        <>
+          <Customer />
+          <AccountOperations />
+          <BalanceDisplay />
+        </>
+      )}
+    </>
   );
 }
 
